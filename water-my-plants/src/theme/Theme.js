@@ -1,6 +1,6 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
-import styled from 'styled';
+import styled from 'styled-components';
 
 const theme = {
     colors: {
@@ -12,27 +12,28 @@ const theme = {
         accentBrown: "#91785D",
     },
     fontSizes: {
-        small: "1em",
-        medium: "2em",
-        large: "3em"
+        small: "1rem",
+        medium: "2rem",
+        large: "3rem"
     }
 };
 
-// const StyledButton = styled.button`
-//     background-color: #fff;
-//     border: none;
-//     outline: none;
-//     color: ${props => props.theme.colors.mainGreen};
-//     padding: 6px;
-//     font-size: ${props => props.theme.fontSizes.small};
-//     font-weight: 600;
-//     margin: 3px;
+const StyledButton = styled.button`
+    background-color: ${props => props.theme.colors.accentGreen};
+    border: 1px solid ${props => props.theme.colors.secondaryBrown};
+    outline: none;
+    color: #fff;
+    padding: 6px;
+    font-size: ${props => props.theme.fontSizes.small};
+    font-weight: 400;
+    margin: 3px;
 
-//     &:hover {
-//         background-color: ${props => {props.theme.colors.accentGreen}};
-//         color: #fff;
-//     }
-// `
+    &:hover {
+        cursor: pointer;
+        background-color: #fff;
+        color: ${props => props.theme.colors.accentGreen};
+    }
+`
 
 const StyledTheme = ({ children }) => (
     <ThemeProvider theme={theme}>
@@ -40,6 +41,6 @@ const StyledTheme = ({ children }) => (
     </ThemeProvider>
 );
 
-// export { StyledButton };
+export { StyledButton };
 
 export default StyledTheme;

@@ -1,8 +1,8 @@
 import React from 'react';
 
-// import { 
-//     StyledButton
-// } from './../../theme/Theme';
+import { 
+    StyledButton
+} from './../../theme/Theme';
 
 import {
     StyledLandingContainer
