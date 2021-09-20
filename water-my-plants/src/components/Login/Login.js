@@ -14,6 +14,7 @@ function Login(props) {
            [e.target.name]: e.target.value
        })
    }
+   // waiting on endpoint
    const login = e => {
        e.preventDefault();
        axios.post('', cred)
