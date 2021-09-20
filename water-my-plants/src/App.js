@@ -1,3 +1,4 @@
+
 import React, {useState} from 'react';
 import { Route, Link, Switch } from 'react-router-dom';
 import ProtectedRoute from './components/Protected Route/ProtectedRoute';
@@ -11,9 +12,7 @@ import LandingPage from './components/Landing Page/LandingPage';
 import Login from './components/Login/Login';
 import SignUp from './components/Sign Up/SignUp';
 import AddPlant from './components/Add Plant/AddPlant';
-
 const App = () => {
-
   const isLoggedin = localStorage.getItem("token");
 
   return (
