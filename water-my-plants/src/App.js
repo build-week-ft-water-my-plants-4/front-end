@@ -1,12 +1,7 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
 
 function App() {
-  return (
-    <div className="App">
-      Water my plants
-    </div>
-  );
+  return <div className="App">Water my plants</div>;
 }
 
 export default App;
