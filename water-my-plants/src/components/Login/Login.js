@@ -61,7 +61,6 @@ function Login(props) {
             </form>
     
     )
->>>>>>> a69d1e9b7b6e009a71c03c89cb4fd2bf8e869f04
 }
         
  

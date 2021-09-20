@@ -1,12 +1,7 @@
 
-import {Link, Route, Switch} from 'react';
 import React, {useState} from 'react';
-<<<<<<< HEAD
-import './App.css';
-=======
 import { Route, Link, Switch } from 'react-router-dom';
 import ProtectedRoute from './components/Protected Route/ProtectedRoute';
->>>>>>> a69d1e9b7b6e009a71c03c89cb4fd2bf8e869f04
 
 //styles
 import StyledTheme from './theme/Theme';
