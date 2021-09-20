@@ -1,4 +1,6 @@
+
 import {Link, Route, Switch} from 'react';
+import React, {useState} from 'react';
 import './App.css';
 
 //styles
@@ -10,8 +12,8 @@ import LandingPage from './components/Landing Page/LandingPage';
 import Login from './components/Login/Login';
 import SignUp from './components/Sign Up/SignUp';
 import AddPlant from './components/Add Plant/AddPlant';
-
 const App = () => {
+
   return (
     <>
     <StyledTheme>
