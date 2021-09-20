@@ -17,10 +17,28 @@ const theme = {
     }
 };
 
+const StyledButton = styled.button`
+    background-color: #fff;
+    border: none;
+    outline: none;
+    color: ${props => props.theme.colors.mainGreen};
+    padding: 6px;
+    font-size: ${props => props.theme.fontSizes.small};
+    font-weight: 600;
+    margin: 3px;
+
+    &:hover {
+        background-color: ${props => {props.theme.colors.accentGreen}};
+        color: #fff;
+    }
+`
+
 const StyledTheme = ({ children }) => (
     <ThemeProvider theme={theme}>
         {children}
     </ThemeProvider>
 );
+
+export { StyledButton };
 
 export default StyledTheme;
