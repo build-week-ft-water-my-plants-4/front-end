@@ -1,5 +1,7 @@
+import React, {useState} from 'react';
+import { Route, Link, Switch } from 'react-router-dom';
+import ProtecRoute from './Login/ProtecRoute/ProtecRoute';
 import './App.css';
-import { Link, Route, Switch } from 'react-router-dom';
 
 //styles
 import StyledTheme from './theme/Theme';
@@ -12,6 +14,7 @@ import SignUp from './components/Sign Up/SignUp';
 import AddPlant from './components/Add Plant/AddPlant';
 
 const App = () => {
+  const isLoggedin = localStorage.getItem("token");
   return (
     <>
     <StyledTheme>
