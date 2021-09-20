@@ -7,8 +7,8 @@ const axiosWithAuth = () => {
         headers: {
             authorization: token
         },
-        baseURL: ''
-    })
+        baseURL: 'http://gardenofeden'
+    });
 }
 
 export default axiosWithAuth;
