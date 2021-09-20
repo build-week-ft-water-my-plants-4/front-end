@@ -1,60 +1,69 @@
-import React, {useState} from 'react';
-import axios from 'axios';
+
+import React,{useState} from 'react';
 
 function Login(props) {
-   const [cred, setCred] = useState({
-       username: '',
-       password: '',
-       phone_number: 0
-   })
+    
+        
+           const initialLoginValues ={
+        username:"",
+        phonenumber:"",
+        password:""
+        }
 
-   const handleChange = e => {
-       setCred({
-           ...cred,
-           [e.target.name]: e.target.value
-       })
-   }
-   // waiting on endpoint
-   const login = e => {
-       e.preventDefault();
-       axios.post('', cred)
-       .then(res => {
-           localStorage.setItem("token", res.data.token);
-           localStorage.setItem("phone_number", res.data.phone_number);
-           localStorage.setItem("username", res.data.username);
-           props.history.push('/landing');
-       })
-       .catch(err => {
-           console.error(err);
-       })
-   }
+    const [loginValues, setLoginValues]=useState(initialLoginValues)
 
-    return (
-        <div>
-           <h3>Login here</h3>
-            <form onSubmit={login}>
-                <input
-                   type='text'
-                   name='usename'
-                   value={cred.username}
-                   onChange={handleChange}
-                />
-                <input
-                   type="password"
-                   name="password"
-                   value={cred.password}
-                   onChange={handleChange}
-                />
-                <input
-                   type='number'
-                   name="phone_number"
-                   value={cred.phone_number}
-                   onChange={handleChange}
-                />
-                <button>Log in</button>
+    const onChange=(event)=>{
+        const {name,value}=event.target;
+        setLoginValues({...loginValues,[name]:value})
+    }
+    
+    const onSubmit =evt =>{
+        evt.preventDefault()
+       console.log(loginValues)
+    }
+    return(
+        
+
+            <form onSubmit={onSubmit}>
+                <h2>Log In Form</h2>
+                <label>username
+                    <input
+                    type="text"
+                    name='username'
+                    value={loginValues.username}
+                    onChange={onChange}
+                    placeholder="Insert your Username"
+                    />
+                </label>
+                <br/>
+                <label>Phone number
+                    <input
+                    type="text"
+                    name='phonenumber'
+                    value={loginValues.phonenumber}
+                    onChange={onChange}
+                    placeholder="Insert your Phone number"
+                    />
+                </label>
+                <br/>
+                <label>Password
+                    <input
+                    type="text"
+                    name='password'
+                    value={loginValues.password}
+                    onChange={onChange}
+                    placeholder="Insert your user Password"
+                    />
+                </label>
+                <br/>
+                <input type='submit' value="Log In"></input>
+                <button>Sign Up</button>
             </form>
-        </div>
-    );
+    
+    )
+>>>>>>> a69d1e9b7b6e009a71c03c89cb4fd2bf8e869f04
 }
+        
+ 
 
 export default Login;
