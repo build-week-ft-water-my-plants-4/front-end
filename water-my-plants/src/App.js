@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { Route, Link, Switch } from 'react-router-dom';
-import ProtecRoute from './Login/ProtecRoute/ProtecRoute';
+import ProtecRoute from './components/Protected Route/ProtectedRoute';
 import './App.css';
 
 //styles
