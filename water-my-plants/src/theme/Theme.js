@@ -1,5 +1,6 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
+import styled from 'styled';
 
 const theme = {
     colors: {
@@ -17,21 +18,21 @@ const theme = {
     }
 };
 
-const StyledButton = styled.button`
-    background-color: #fff;
-    border: none;
-    outline: none;
-    color: ${props => props.theme.colors.mainGreen};
-    padding: 6px;
-    font-size: ${props => props.theme.fontSizes.small};
-    font-weight: 600;
-    margin: 3px;
+// const StyledButton = styled.button`
+//     background-color: #fff;
+//     border: none;
+//     outline: none;
+//     color: ${props => props.theme.colors.mainGreen};
+//     padding: 6px;
+//     font-size: ${props => props.theme.fontSizes.small};
+//     font-weight: 600;
+//     margin: 3px;
 
-    &:hover {
-        background-color: ${props => {props.theme.colors.accentGreen}};
-        color: #fff;
-    }
-`
+//     &:hover {
+//         background-color: ${props => {props.theme.colors.accentGreen}};
+//         color: #fff;
+//     }
+// `
 
 const StyledTheme = ({ children }) => (
     <ThemeProvider theme={theme}>
@@ -39,6 +40,6 @@ const StyledTheme = ({ children }) => (
     </ThemeProvider>
 );
 
-export { StyledButton };
+// export { StyledButton };
 
 export default StyledTheme;
