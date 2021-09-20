@@ -1,30 +1,8 @@
-import React, { useState } from "react";
+//Gotta figure out how to have this replace original
 
-const initialFormValues = {
-  id: "",
-  nickname: "",
-  species: "",
-  h20_frequency: "",
-};
+import React from "react";
 
-const initialFormErrors = {
-  id: "",
-  nickname: "",
-  species: "",
-  h20_frequency: "",
-};
-
-function AddPlant(props) {
-  const [formValues, setFormValues] = useState(initialFormValues);
-  const [formErrors, setFormErrors] = useState(initialFormErrors);
-  const [disabled, setDisabled] = useState(true);
-
-  const onSubmit = (event) => {
-    event.preventDefault();
-  };
-
-  const onChange = (event) => {};
-
+const Edit = () => {
   return (
     <form onSubmit={onSubmit}>
       <h2>Add a Plant</h2>
@@ -65,6 +43,6 @@ function AddPlant(props) {
       <button disabled={disabled}>Add</button>
     </form>
   );
-}
+};
 
-export default AddPlant;
+export default Edit;
