@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axiosWithAuth from "../../utils/axiosWithAuth";
 
 const initialFormValues = {
   id: "",
@@ -21,9 +22,16 @@ function AddPlant(props) {
 
   const onSubmit = (event) => {
     event.preventDefault();
+    axiosWithAuth().post("/add-plant", formValues)
+    .then(res => {
+      console.log(res);
+    })
   };
 
-  const onChange = (event) => {};
+  const onChange = (event) => {
+    const {name,value}=event.target;
+    setFormValues({...formValues,[name]:value})
+  };
 
   return (
     <form onSubmit={onSubmit}>

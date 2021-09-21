@@ -20,7 +20,7 @@ function Login(props) {
     
     const onSubmit =evt =>{
         evt.preventDefault()
-        axiosWithAuth().post('https://water-my-plants-4-api.herokuapp.com/login', loginValues)
+        axiosWithAuth().post('/login', loginValues)
         .then(res => {
             localStorage.setItem("token", res.data.token);
             localStorage.setItem("username", res.data.username);
