@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, {useState} from 'react';
 
 function SignUp(props) {
@@ -16,6 +17,14 @@ function SignUp(props) {
 
     const onSubmit=event=>{
         event.preventDefault()
+        axios.post('https://water-my-plants-4-api.herokuapp.com/sign-up', signupValues)
+        .then(res => {
+            localStorage.setItem("token", res.data.token);
+            localStorage.setItem('username', res.data.username);
+            localStorage.setItem('phone_number', res.data.phone_number);
+            console.log(res);
+            props.history.push('/login');
+        })
         console.log(signupValues)
     }
 

@@ -1,5 +1,6 @@
 
 import React,{useState} from 'react';
+import axiosWithAuth from '../../utils/axiosWithAuth';
 
 function Login(props) {
     
@@ -19,6 +20,13 @@ function Login(props) {
     
     const onSubmit =evt =>{
         evt.preventDefault()
+        axiosWithAuth().post('https://water-my-plants-4-api.herokuapp.com/login', loginValues)
+        .then(res => {
+            localStorage.setItem("token", res.data.token);
+            localStorage.setItem("username", res.data.username);
+            localStorage.setItem("phone_number", res.data.phone_number);
+            props.history.push('/add-plant');
+        })
        console.log(loginValues)
     }
     return(

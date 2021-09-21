@@ -4,8 +4,7 @@ import axiosWithAuth from "../../utils/axiosWithAuth";
 
 const Logout = (props) => {
     useEffect(() => {
-            axiosWithAuth()
-            .post("/logout", {
+           axiosWithAuth().delete("/logout", {
             }).then(res => {
                 localStorage.removeItem('token');
                 localStorage.removeItem("phone_number");
