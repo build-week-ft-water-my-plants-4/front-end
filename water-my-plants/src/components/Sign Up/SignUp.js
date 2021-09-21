@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {Link} from 'react-router-dom';
 
 function SignUp(props) {
     const initialSignupValues={
@@ -9,7 +10,7 @@ function SignUp(props) {
 
     const [signupValues,setSignupValues]=useState(initialSignupValues);
     
-    const onChange(event)=>{
+    const onChange=(event)=>{
         const {name,value}=event.target;
         setSignupValues({...signupValues,[name]:value})
     }
@@ -53,7 +54,7 @@ function SignUp(props) {
                 </label>
                 <br/>
                 <input type='submit' value="Sign Up"></input>
-                <button>Go Back</button>
+                <Link to="/login"><button>Go Back</button></Link>
             </form>
 
 
