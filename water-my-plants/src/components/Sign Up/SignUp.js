@@ -1,7 +1,15 @@
 import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
+import styled from 'styled-components'
 
 function SignUp(props) {
+    const StyledSignupForm=styled.form`
+    display:flex;
+    flex-direction:column;
+    
+    background-color:#869D7A;
+    width:25%;
+    `
     const initialSignupValues={
         username:"",
         phonenumber:"",
@@ -21,7 +29,7 @@ function SignUp(props) {
     }
 
     return (
-        <form onSubmit={onSubmit}>
+        <StyledSignupForm onSubmit={onSubmit}>
                 <h2>Sign Up Form</h2>
                 <label>username
                     <input
@@ -53,9 +61,12 @@ function SignUp(props) {
                     />
                 </label>
                 <br/>
+                <div>
+
                 <input type='submit' value="Sign Up"></input>
                 <Link to="/login"><button>Go Back</button></Link>
-            </form>
+                </div>
+            </StyledSignupForm>
 
 
     );
