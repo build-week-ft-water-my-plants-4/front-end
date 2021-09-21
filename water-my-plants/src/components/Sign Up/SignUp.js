@@ -4,7 +4,7 @@ import React, {useState} from 'react';
 function SignUp(props) {
     const initialSignupValues={
         username:"",
-        phonenumber:"",
+        phone_number: 0,
         password:""
     }
 
@@ -17,7 +17,7 @@ function SignUp(props) {
 
     const onSubmit=event=>{
         event.preventDefault()
-        axios.post('https://water-my-plants-4-api.herokuapp.com/sign-up', signupValues)
+        axios.post('https://water-my-plants-4-api.herokuapp.com/auth/register', signupValues)
         .then(res => {
             localStorage.setItem("token", res.data.token);
             localStorage.setItem('username', res.data.username);
@@ -44,8 +44,8 @@ function SignUp(props) {
                 <label>Phone number
                     <input
                     type="text"
-                    name='phonenumber'
-                    value={signupValues.phonenumber}
+                    name='phone_number'
+                    value={signupValues.phone_number}
                     onChange={onChange}
                     placeholder="Insert your Phone number"
                     />

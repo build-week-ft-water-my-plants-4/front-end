@@ -7,7 +7,7 @@ function Login(props) {
         
        const initialLoginValues ={
         username:"",
-        phonenumber:"",
+        phone_number:0,
         password:""
         }
 
@@ -20,12 +20,15 @@ function Login(props) {
     
     const onSubmit =evt =>{
         evt.preventDefault()
-        axiosWithAuth().post('/login', loginValues)
+        axiosWithAuth().post('/auth/login', loginValues)
         .then(res => {
             localStorage.setItem("token", res.data.token);
             localStorage.setItem("username", res.data.username);
-            localStorage.setItem("phone_number", res.data.phone_number);
+            localStorage.setItem("password", res.data.password);
             props.history.push('/add-plant');
+        })
+        .catch(err => {
+            console.error(err);
         })
        console.log(loginValues)
     }
@@ -47,8 +50,8 @@ function Login(props) {
                 <label>Phone number
                     <input
                     type="text"
-                    name='phonenumber'
-                    value={loginValues.phonenumber}
+                    name='phone_number'
+                    value={loginValues.phone_number}
                     onChange={onChange}
                     placeholder="Insert your Phone number"
                     />
@@ -65,7 +68,6 @@ function Login(props) {
                 </label>
                 <br/>
                 <input type='submit' value="Log In"></input>
-                <button>Sign Up</button>
             </form>
     
     )
