@@ -24,16 +24,15 @@ const Login = () => {
     
     const onSubmit = evt =>{
         evt.preventDefault()
-        axiosWithAuth().post('/auth/login', loginValues)
-        .then(res => {
-            localStorage.setItem("token", res.data.token);
-            localStorage.setItem("username", res.data.username);
-            localStorage.setItem("password", res.data.password);
-            push('/add-plant');
-        })
-        .catch(err => {
-            console.error(err);
-        })
+        axiosWithAuth()
+            .post('/auth/login', loginValues)
+            .then(res => {
+                console.log(res);
+                push('/add-plant');
+            })
+            .catch(err => {
+                console.error(err);
+            })
        console.log(loginValues)
     }
 

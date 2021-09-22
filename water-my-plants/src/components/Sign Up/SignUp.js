@@ -1,60 +1,33 @@
 import axios from 'axios';
 import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
-import styled from 'styled-components'
 
- // styling
- const StyledFormandImage=styled.div`
- display:flex;
- 
- `
- const StyledImage=styled.img`
- object-fit:contain;
- max-width:100%;
- box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
- 
- `
- const StyledButtonContainer=styled.div`
- display:flex;
- margin: 10% 0%;
- `
- const StyledSignupForm=styled.form`
- display:flex;
- flex-direction:column;
- box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
- background-color:#869D7A;
- width:50%;
- height:auto;
- color:white;
- 
- `
- const StyledSignupLabel=styled.label`
- display:flex;
- flex-direction:column;
- width:90%;
- margin:2% 0%;
- justify-content:space-between;
-
- `
- //styling ends here
+import {
+    StyledSignupForm,
+    StyledFormandImage,
+    StyledImage,
+    StyledButtonContainer,
+    StyledSignupLabel
+} from './SignUpStyles';
 
 
-function SignUp(props) {
+const SignUp = (props) => {
    
-    
     const initialSignupValues={
         username:"",
-        phone_number: 0,
+        phone_number: '',
         password:""
-    }
+    };
 
     const [signupValues,setSignupValues]=useState(initialSignupValues);
     
 
-    const onChange = (event)=>{
-        const {name,value}=event.target;
-        setSignupValues({...signupValues,[name]:value})
-    }
+    const onChange = (event) => {
+        const { name, value } = event.target;
+        setSignupValues({
+            ...signupValues,
+            [name]: value})
+    };
 
     const onSubmit=event=>{
         event.preventDefault()
@@ -66,7 +39,7 @@ function SignUp(props) {
             console.log(res);
             props.history.push('/login');
         })
-        console.log(signupValues)
+        console.log(signupValues, 'signup.js - signupvalues')
     }
 
     return (
@@ -96,7 +69,7 @@ function SignUp(props) {
                
                 <StyledSignupLabel>Password
                     <input
-                    type="text"
+                    type="password"
                     name='password'
                     value={signupValues.password}
                     onChange={onChange}
