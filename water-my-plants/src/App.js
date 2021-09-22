@@ -1,7 +1,7 @@
+
 import React, {useState} from 'react';
 import { Route, Link, Switch } from 'react-router-dom';
-import ProtecRoute from './components/Protected Route/ProtectedRoute';
-import './App.css';
+import ProtectedRoute from './components/Protected Route/ProtectedRoute';
 
 //styles
 import StyledTheme from './theme/Theme';
@@ -10,11 +10,12 @@ import StyledTheme from './theme/Theme';
 import Header from './components/Header/Header';
 import LandingPage from './components/Landing Page/LandingPage';
 import Login from './components/Login/Login';
+import Logout from './components/Protected Route/Logout'
 import SignUp from './components/Sign Up/SignUp';
 import AddPlant from './components/Add Plant/AddPlant';
-
 const App = () => {
   const isLoggedin = localStorage.getItem("token");
+
   return (
     <>
     <StyledTheme>
@@ -30,6 +31,8 @@ const App = () => {
         <Route path='/sign-up' component={SignUp} />
 
         <Route path='/add-plant' component={AddPlant} />
+        
+        <Route path='/logout' component={Logout} />
 
       </Switch>
 

@@ -49,7 +49,8 @@ function SignUp(props) {
 
     const [signupValues,setSignupValues]=useState(initialSignupValues);
     
-    const onChange=(event)=>{
+
+    const onChange = (event)=>{
         const {name,value}=event.target;
         setSignupValues({...signupValues,[name]:value})
     }
