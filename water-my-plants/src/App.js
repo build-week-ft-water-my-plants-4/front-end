@@ -1,4 +1,4 @@
-
+import './App.css'
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import ProtectedRoute from './components/Protected Route/ProtectedRoute';
@@ -17,7 +17,6 @@ const App = () => {
   const isLoggedin = localStorage.getItem("token");
 
   return (
-    <>
     <StyledTheme>
 
       <Header />
@@ -37,7 +36,6 @@ const App = () => {
       </Switch>
 
     </StyledTheme>
-    </>
   )
 }
 
