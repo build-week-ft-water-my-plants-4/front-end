@@ -3,8 +3,6 @@ import React,{useState} from 'react';
 import axiosWithAuth from '../../utils/axiosWithAuth';
 
 function Login(props) {
-    
-        
        const initialLoginValues ={
         username:"",
         phone_number:0,
@@ -59,7 +57,7 @@ function Login(props) {
                 <br/>
                 <label>Password
                     <input
-                    type="text"
+                    type="password"
                     name='password'
                     value={loginValues.password}
                     onChange={onChange}
