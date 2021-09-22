@@ -23,7 +23,6 @@ function AddPlant(props) {
     axiosWithAuth().post("/api/plants", formValues)
     .then(res => {
       console.log(res);
-      
     })
     .catch(err => {
       console.error(err);
