@@ -13,26 +13,29 @@ const initialFormErrors = {
   h20_frequency: "",
 };
 
-function AddPlant(props) {
+const AddPlant = () => {
   const [formValues, setFormValues] = useState(initialFormValues);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [disabled, setDisabled] = useState(true);
 
   const onSubmit = (event) => {
     event.preventDefault();
-    axiosWithAuth().post("/api/plants", formValues)
-    .then(res => {
-      console.log(res);
-    })
-    .catch(err => {
-      console.error(err);
-      setFormErrors(err)
-    })
+    axiosWithAuth()
+      .post("/api/plants", formValues)
+      .then(res => {
+        console.log('addplant.js - formValues onsubmit', res);
+      })
+      .catch(err => {
+        console.error(err);
+        // setFormErrors(err)
+      })
   };
 
   const onChange = (event) => {
-    const {name,value}=event.target;
-    setFormValues({...formValues,[name]:value})
+    const { name, value } = event.target;
+    setFormValues({
+      ...formValues,
+      [name]: value})
   };
 
   return (
@@ -40,7 +43,7 @@ function AddPlant(props) {
       <h2>Add a Plant</h2>
       <label>
         <p>
-          What's your plants nickname?{" "}
+          What's your plants nickname?
           <input
             name="nickname"
             type="text"
