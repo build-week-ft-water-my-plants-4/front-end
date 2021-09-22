@@ -16,7 +16,7 @@ const initialFormErrors = {
 const AddPlant = () => {
   const [formValues, setFormValues] = useState(initialFormValues);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
-  const [disabled, setDisabled] = useState(true);
+  const [disabled, setDisabled] = useState(true); // when/how are we changing this?
 
   const onSubmit = (event) => {
     event.preventDefault();
