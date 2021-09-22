@@ -8,7 +8,6 @@ const Login = () => {
  
     const initialLoginValues ={
     username:"",
-    phone_number:'',
     password:""
     }
 
@@ -27,13 +26,18 @@ const Login = () => {
         axiosWithAuth()
             .post('/auth/login', loginValues)
             .then(res => {
-                console.log(res);
+                localStorage.setItem("token", res.data.token);
+                // -- //
+
+                // localStorage.setItem("username", res.data.username);
+                // localStorage.setItem("password", res.data.password);
+
+                // -- currently not receiving back the username or password in the resp --
                 push('/add-plant');
             })
             .catch(err => {
                 console.error(err);
             })
-       console.log(loginValues)
     }
 
 
@@ -49,15 +53,7 @@ const Login = () => {
                 placeholder="Insert your Username"
                 />
             </label>
-            {/* <label>Phone Number:
-                <input
-                type="text"
-                name='phone_number'
-                value={loginValues.phone_number}
-                onChange={onChange}
-                placeholder="Insert your Phone number"
-                />
-            </label> */}
+    
             <label>Password:
                 <input
                 type="password"
