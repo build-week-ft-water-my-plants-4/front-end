@@ -7,7 +7,7 @@ import { StyledNavContainer, StyledHeaderLinks } from './HeaderStyles';
 
 import { StyledButton } from '../../theme/Theme';
 import { PersonAdd } from '@mui/icons-material';
-// import AccountBoxIcon from '@mui/icons-material/AccountBox';
+ import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import { AccountBox } from '@mui/icons-material';
 
 const Header = () => {
@@ -30,9 +30,9 @@ const Header = () => {
                     <nav><Link to='/sign-up' className="btn btn-click"><PersonAdd sx={{ fontSize: 45, color: '#60492C'}}/></Link></nav>
                 </StyledHeaderLinks>
 
-                {/* <Link to='/add-plant' className="btn btn-click">Plants</Link>
+                {/* <Link to='/add-plant' className="btn btn-click">Plants</Link>*/}
 
-                <Link to='/logout' className="btn btn-click">Logout</Link> */}
+                <Link to='/logout' className="btn btn-click">Logout</Link>
 
             </StyledNavContainer>
         </div>

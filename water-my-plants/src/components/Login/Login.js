@@ -3,7 +3,6 @@ import axiosWithAuth from '../../utils/axiosWithAuth';
 import { useHistory } from 'react-router';
 
 const Login = () => {
-
     const { push } = useHistory();
  
     const initialLoginValues ={
@@ -35,7 +34,6 @@ const Login = () => {
                 console.error(err);
             })
     }
-
 
     return(
         <form onSubmit={onSubmit}>
