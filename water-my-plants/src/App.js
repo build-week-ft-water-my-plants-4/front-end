@@ -1,6 +1,6 @@
 
-import React, {useState} from 'react';
-import { Route, Link, Switch } from 'react-router-dom';
+import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 import ProtectedRoute from './components/Protected Route/ProtectedRoute';
 
 //styles
@@ -30,7 +30,7 @@ const App = () => {
 
         <Route path='/sign-up' component={SignUp} />
 
-        <Route path='/add-plant' component={AddPlant} />
+        <ProtectedRoute path='/add-plant' component={AddPlant} />
         
         <Route path='/logout' component={Logout} />
 

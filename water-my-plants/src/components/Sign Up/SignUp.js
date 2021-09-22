@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components'
@@ -43,7 +44,7 @@ function SignUp(props) {
     
     const initialSignupValues={
         username:"",
-        phonenumber:"",
+        phone_number: 0,
         password:""
     }
 
@@ -57,6 +58,14 @@ function SignUp(props) {
 
     const onSubmit=event=>{
         event.preventDefault()
+        axios.post('https://water-my-plants-4-api.herokuapp.com/auth/register', signupValues)
+        .then(res => {
+            localStorage.setItem("token", res.data.token);
+            localStorage.setItem('username', res.data.username);
+            localStorage.setItem('phone_number', res.data.phone_number);
+            console.log(res);
+            props.history.push('/login');
+        })
         console.log(signupValues)
     }
 
@@ -78,8 +87,8 @@ function SignUp(props) {
                 <StyledSignupLabel>Phone number
                     <input
                     type="text"
-                    name='phonenumber'
-                    value={signupValues.phonenumber}
+                    name='phone_number'
+                    value={signupValues.phone_number}
                     onChange={onChange}
                     placeholder="Insert your Phone number"
                     />

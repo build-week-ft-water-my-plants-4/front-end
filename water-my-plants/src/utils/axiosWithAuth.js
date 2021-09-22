@@ -7,7 +7,7 @@ const axiosWithAuth = () => {
         headers: {
             authorization: token
         },
-        baseURL: 'http://gardenofeden'
+        baseURL: 'https://water-my-plants-4-api.herokuapp.com'
     });
 }
 

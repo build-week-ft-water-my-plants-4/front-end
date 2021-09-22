@@ -2,10 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Header = () => {
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem("token")
     return (
         <div style={{border: "3px solid red"}}>
-            <h1>Title</h1>
+            <h1>Garden of Eden</h1>
             <div className='nav-bar'>
                
                 <Link to='/login' className="btn btn-click">Login</Link>

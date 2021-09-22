@@ -1,14 +1,13 @@
 import React, { useState } from "react";
+import axiosWithAuth from "../../utils/axiosWithAuth";
 
 const initialFormValues = {
-  id: "",
   nickname: "",
   species: "",
   h20_frequency: "",
 };
 
 const initialFormErrors = {
-  id: "",
   nickname: "",
   species: "",
   h20_frequency: "",
@@ -21,9 +20,21 @@ function AddPlant(props) {
 
   const onSubmit = (event) => {
     event.preventDefault();
+    axiosWithAuth().post("/api/plants", formValues)
+    .then(res => {
+      console.log(res);
+      
+    })
+    .catch(err => {
+      console.error(err);
+      setFormErrors(err)
+    })
   };
 
-  const onChange = (event) => {};
+  const onChange = (event) => {
+    const {name,value}=event.target;
+    setFormValues({...formValues,[name]:value})
+  };
 
   return (
     <form onSubmit={onSubmit}>
@@ -32,7 +43,7 @@ function AddPlant(props) {
         <p>
           What's your plants nickname?{" "}
           <input
-            name="plantName"
+            name="nickname"
             type="text"
             placeholder="Add a Nickname"
             onChange={onChange}
@@ -62,7 +73,7 @@ function AddPlant(props) {
           </select>
         </p>
       </label>
-      <button disabled={disabled}>Add</button>
+      <button disabled={false}>Add</button>
     </form>
   );
 }
