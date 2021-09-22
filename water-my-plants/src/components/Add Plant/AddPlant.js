@@ -5,26 +5,32 @@ import axiosWithAuth from "../../utils/axiosWithAuth";
 const initialFormValues = {
   nickname: "",
   species: "",
-  h20_frequency: "",
+  h2o_frequency: "",
 };
 
 const initialFormErrors = {
   nickname: "",
   species: "",
-  h20_frequency: "",
+  h2o_frequency: "",
 };
 
 function AddPlant(props) {
   const [formValues, setFormValues] = useState(initialFormValues);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [disabled, setDisabled] = useState(true);
-
+  
+  const userId = parseInt(localStorage.getItem("user_id"));
+  
   const onSubmit = (event) => {
     event.preventDefault();
+    console.log('userID exists', typeof userId);
+
+    console.log('user id added',formValues)
+
     axiosWithAuth().post("/api/plants", formValues)
     .then(res => {
       console.log(res);
-      setFormValues(res.data);
+      setFormValues(initialFormValues);
     })
     .catch(err => {
       console.error(err);
@@ -35,7 +41,8 @@ function AddPlant(props) {
 
   const onChange = (event) => {
     const {name,value}=event.target;
-    setFormValues({...formValues,[name]:value})
+    setFormValues({...formValues,[name]:value,
+    user_id: userId})
   };
 
   return (
