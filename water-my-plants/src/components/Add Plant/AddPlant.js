@@ -1,4 +1,4 @@
-import axios from "axios";
+
 import React, { useState } from "react";
 import axiosWithAuth from "../../utils/axiosWithAuth";
 
@@ -47,6 +47,7 @@ function AddPlant(props) {
           <input
             name="nickname"
             type="text"
+            value={formValues.nickname}
             placeholder="Add a Nickname"
             onChange={onChange}
           />
@@ -58,6 +59,7 @@ function AddPlant(props) {
           <input
             name="species"
             type="text"
+            value={formValues.species}
             placeholder="Add the Species"
             onChange={onChange}
           />
@@ -67,10 +69,10 @@ function AddPlant(props) {
         <p>
           How often do you water it?{" "}
           <select name="h2o_frequency" onChange={onChange}>
-            {/* <option value=""> -- Select -- </option> */}
-            <option value="1">Every Day</option>
-            <option value="3">Every Three Days</option>
-            <option value="5">Every Five Days</option>
+            <option value={formValues.h20_frequency}> -- Select -- </option>
+            <option value='1'>Every Day</option>
+            <option value='3'>Every Three Days</option>
+            <option value='5'>Every Five Days</option>
             <option value="7">Once a Week</option>
           </select>
         </p>

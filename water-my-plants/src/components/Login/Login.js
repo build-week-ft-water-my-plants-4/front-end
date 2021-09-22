@@ -5,7 +5,6 @@ import axiosWithAuth from '../../utils/axiosWithAuth';
 function Login(props) {
        const initialLoginValues ={
         username:"",
-        phone_number:0,
         password:""
         }
 
@@ -21,8 +20,6 @@ function Login(props) {
         axiosWithAuth().post('/auth/login', loginValues)
         .then(res => {
             localStorage.setItem("token", res.data.token);
-            localStorage.setItem("username", res.data.username);
-            localStorage.setItem("password", res.data.password);
             props.history.push('/add-plant');
         })
         .catch(err => {
@@ -42,16 +39,6 @@ function Login(props) {
                     value={loginValues.username}
                     onChange={onChange}
                     placeholder="Insert your Username"
-                    />
-                </label>
-                <br/>
-                <label>Phone number
-                    <input
-                    type="text"
-                    name='phone_number'
-                    value={loginValues.phone_number}
-                    onChange={onChange}
-                    placeholder="Insert your Phone number"
                     />
                 </label>
                 <br/>

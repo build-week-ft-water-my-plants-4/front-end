@@ -60,11 +60,13 @@ function SignUp(props) {
         event.preventDefault()
         axios.post('https://water-my-plants-4-api.herokuapp.com/auth/register', signupValues)
         .then(res => {
-            localStorage.setItem("token", res.data.token);
             localStorage.setItem('username', res.data.username);
             localStorage.setItem('phone_number', res.data.phone_number);
             console.log(res);
             props.history.push('/login');
+        })
+        .catch(err => {
+            console.error(err)
         })
         console.log(signupValues)
     }
@@ -108,7 +110,6 @@ function SignUp(props) {
 
                 <button type='submit' value="Sign Up">Sign Up</button>
                 <Link to="/login"><button>Go Back</button></Link>
-                
                 </StyledButtonContainer>
             </StyledSignupForm>
             <StyledImage src="https://images.unsplash.com/photo-1515150144380-bca9f1650ed9?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8d2F0ZXJpbmclMjBwbGFudHN8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"></StyledImage>
