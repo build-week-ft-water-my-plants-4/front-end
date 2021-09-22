@@ -34,10 +34,7 @@ const SignUp = (props) => {
         event.preventDefault()
         axios.post('https://water-my-plants-4-api.herokuapp.com/auth/register', signupValues)
             .then(res => {
-                localStorage.setItem("token", res.data.token);
-                localStorage.setItem('username', res.data.username);
-                localStorage.setItem('phone_number', res.data.phone_number);
-                console.log(res);
+                console.log('signup submit response', res);
                 props.history.push('/login');
             })
             .catch(err => {

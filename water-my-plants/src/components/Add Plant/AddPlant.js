@@ -48,24 +48,26 @@ const AddPlant = () => {
             name="nickname"
             type="text"
             placeholder="Add a Nickname"
+            value={formValues.nickname}
             onChange={onChange}
           />
         </p>
       </label>
       <label>
         <p>
-          What species is it?{" "}
+          What species is it?
           <input
             name="species"
             type="text"
             placeholder="Add the Species"
             onChange={onChange}
+            value={formValues.species}
           />
         </p>
       </label>
       <label>
-        <p>
-          How often do you water it?{" "}
+        {/* <p>
+          How often do you water it?
           <select name="h2o_frequency" onChange={onChange}>
             <option value=""> -- Select -- </option>
             <option value="1">Every Day</option>
@@ -73,7 +75,7 @@ const AddPlant = () => {
             <option value="5">Every Five Days</option>
             <option value="7">Once a Week</option>
           </select>
-        </p>
+        </p> */}
       </label>
       <button disabled={false}>Add</button>
     </form>

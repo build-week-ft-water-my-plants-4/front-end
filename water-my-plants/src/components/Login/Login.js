@@ -26,13 +26,9 @@ const Login = () => {
         axiosWithAuth()
             .post('/auth/login', loginValues)
             .then(res => {
+                console.log(res);
                 localStorage.setItem("token", res.data.token);
-                // -- //
-
-                // localStorage.setItem("username", res.data.username);
-                // localStorage.setItem("password", res.data.password);
-
-                // -- currently not receiving back the username or password in the resp --
+                localStorage.setItem("user_id", res.data.user_id);
                 push('/add-plant');
             })
             .catch(err => {
