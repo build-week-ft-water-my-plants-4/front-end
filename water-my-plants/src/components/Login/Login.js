@@ -59,7 +59,7 @@ function Login(props) {
                 <br/>
                 <label>Password
                     <input
-                    type="text"
+                    type="password"
                     name='password'
                     value={loginValues.password}
                     onChange={onChange}
