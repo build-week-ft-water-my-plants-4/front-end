@@ -49,7 +49,7 @@ const Login = () => {
                 placeholder="Insert your Username"
                 />
             </label>
-            <label>Phone Number:
+            {/* <label>Phone Number:
                 <input
                 type="text"
                 name='phone_number'
@@ -57,7 +57,7 @@ const Login = () => {
                 onChange={onChange}
                 placeholder="Insert your Phone number"
                 />
-            </label>
+            </label> */}
             <label>Password:
                 <input
                 type="password"

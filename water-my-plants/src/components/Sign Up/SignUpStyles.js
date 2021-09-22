@@ -11,6 +11,8 @@ import styled from 'styled-components'
 
     
  // styling
+
+ export const WateringCanImage = "https://images.unsplash.com/photo-1515150144380-bca9f1650ed9?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8d2F0ZXJpbmclMjBwbGFudHN8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
  export const StyledFormandImage=styled.div`
  display:flex;
 

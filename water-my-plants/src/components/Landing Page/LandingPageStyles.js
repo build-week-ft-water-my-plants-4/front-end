@@ -15,3 +15,5 @@ export const StyledIntroContainer = styled.div`
 export const StyledSpan = styled.span`
     color: ${props => props.theme.colors.mainGreen};
 `
+
+export const LandingImage = 'https://images.unsplash.com/photo-1487798452839-c748a707a6b2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=735&q=80'
