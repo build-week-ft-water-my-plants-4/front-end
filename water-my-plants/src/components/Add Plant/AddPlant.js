@@ -1,7 +1,6 @@
-import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axiosWithAuth from "../../utils/axiosWithAuth";
-
+import axios from 'axios'
 const initialFormValues = {
   nickname: "",
   species: "",
@@ -18,7 +17,35 @@ function AddPlant(props) {
   const [formValues, setFormValues] = useState(initialFormValues);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [disabled, setDisabled] = useState(true);
+  // changes
+  const [plants, setPlants]=useState([]);
+  useEffect(()=>{
+    axios.get('https://water-my-plants-4-api.herokuapp.com/api/users')
+    .then(response =>{
+      console.log('users',response);
+    }).catch(error=>{
+      console.log(error);
+    });
 
+    axios.get('https://water-my-plants-4-api.herokuapp.com/api/plants')
+.then(response =>{
+  console.log('plants',response);
+  setPlants(response.data)
+}).catch(error=>{
+  console.log(error);
+});
+  },[])
+//fetch version for plant data
+  // const getPlant=async()=>{
+  //   const response =await fetch('https://water-my-plants-4-api.herokuapp.com/');
+  //   const data=await response.json();
+  //   console.log(data)
+  // }
+ console.log(plants);
+  const listofPlants=plants.map(function(plant){
+    return plant.nickname
+  })
+  //end of changes
   const onSubmit = (event) => {
     event.preventDefault();
     axiosWithAuth().post("/api/plants", formValues)
@@ -39,6 +66,9 @@ function AddPlant(props) {
   };
 
   return (
+    <div>
+
+   
     <form onSubmit={onSubmit}>
       <h2>Add a Plant</h2>
       <label>
@@ -77,6 +107,16 @@ function AddPlant(props) {
       </label>
       <button disabled={false}>Add</button>
     </form>
+    <div>
+      {plants.map((plant)=>(
+        <div>
+     <h3>{plant.nickname}</h3>
+     <h3>{plant.species}</h3>
+     <h3>{plant.h20_frequency}</h3>
+     </div>
+     ))}
+    </div>
+    </div>
   );
 }
 
