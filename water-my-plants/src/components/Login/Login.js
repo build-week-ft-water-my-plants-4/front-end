@@ -66,9 +66,11 @@ const Login = (props) => {
                 onChange={onChange}
                 placeholder="Insert your Username"
                 />
+
             </StyledLoginLabel>
     
             <StyledLoginLabel>Password:
+
                 <input
                 type="password"
                 name='password'
