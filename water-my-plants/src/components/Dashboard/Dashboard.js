@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import AddPlant from '../Add Plant/AddPlant';
 import Plant from './PlantCard';
+import { StyledDash } from './DashboardStyles';
+
 
 const Dashboard = () => {
 
@@ -47,6 +49,7 @@ const Dashboard = () => {
 
     return(
         <>
+        <StyledDash>
         {
             (plants.length > 1) ? plants.map(plant => {
                 return(
@@ -61,6 +64,7 @@ const Dashboard = () => {
         <div>
             <AddPlant />
         </div>
+        </StyledDash>
         </>
     );
 };
