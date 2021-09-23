@@ -65,15 +65,20 @@ const AddPlant = () => {
 
   const onSubmit = (event) => {
     event.preventDefault();
-    axiosWithAuth()
-      .post("/api/plants", formValues)
-      .then((res) => {
-        console.log("addplant.js - formValues onsubmit", res);
-      })
-      .catch((err) => {
-        console.error(err);
-        // setFormErrors(err)
-      });
+
+    axiosWithAuth().post("/api/plants", formValues)
+    .then(res => {
+      setFormValues(initialFormValues);
+      push('/dashboard')
+    })
+    .catch(err => {
+      console.error(err);
+      setFormErrors(err);
+    })
+    .finally(res => {
+      window.location.reload(true);
+    })
+    console.log(formValues);
   };
 
   const onChange = (event) => {
