@@ -35,7 +35,6 @@ border-radius:25px;
 `
 export const StyledPlantCardDiv=styled.div`
 width:100%;
-border:1px solid red;
 `
 export const PlantIcon ="https://cdn3.iconfinder.com/data/icons/ecology-67/300/ecology-ecofriend-bio-eco-nature--plant-water-256.png"
 export const PlantIconImg=styled.img`
