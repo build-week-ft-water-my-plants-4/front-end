@@ -16,6 +16,7 @@ import styled from 'styled-components'
  
  export const StyledFormandImage=styled.div`
  display:flex;
+ margin-left:4%;
 
  `
  export const StyledImage=styled.img`
@@ -35,6 +36,7 @@ import styled from 'styled-components'
  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
  background-color:#869D7A;
  width:50%;
+ padding:0% 1%;
  height:auto;
  color:white;
  `
@@ -45,5 +47,20 @@ import styled from 'styled-components'
  width:90%;
  margin:2% 0%;
  justify-content:space-between;
+ `
+ export const StyledButtonsforLoginSignup=styled.button`
+  background-color: #629460;
+  border: 1px solid white;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
+  color: white;
+  width:100px;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 10px 25px;
+  text-align: center;
+  
+  transition:transform .4s;
+  &:hover{transform: scale(1.1);}
  `
  //styling ends here

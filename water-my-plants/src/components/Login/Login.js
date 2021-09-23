@@ -2,6 +2,23 @@ import React,{useState} from 'react';
 import axiosWithAuth from '../../utils/axiosWithAuth';
 import { useHistory } from 'react-router';
 
+import {
+    GrowingPlantImage,
+    StyledImage,
+    StyledFormandImage,
+    StyledButtonContainer,
+    StyledLoginForm,
+    StyledLoginLabel,
+    StyledButtonsforLoginSignup
+    } from './LoginStyles'
+
+
+
+
+
+
+
+
 const initialLoginValues = {
     username:"",
     password:""
@@ -38,9 +55,10 @@ const Login = (props) => {
     }
 
     return(
-        <form onSubmit={onSubmit}>
+        <StyledFormandImage>
+        <StyledLoginForm onSubmit={onSubmit}>
             <h2>Log In Form</h2>
-            <label>Username:
+            <StyledLoginLabel>Username:
                 <input
                 type="text"
                 name='username'
@@ -48,9 +66,9 @@ const Login = (props) => {
                 onChange={onChange}
                 placeholder="Insert your Username"
                 />
-            </label>
+            </StyledLoginLabel>
     
-            <label>Password:
+            <StyledLoginLabel>Password:
                 <input
                 type="password"
                 name='password'
@@ -58,10 +76,16 @@ const Login = (props) => {
                 onChange={onChange}
                 placeholder="Insert your user Password"
                 />
-            </label>
+            </StyledLoginLabel>
+            <StyledButtonContainer>
+            
+            <StyledButtonsforLoginSignup type="submit" >Log In</StyledButtonsforLoginSignup>
+            </StyledButtonContainer>
+        </StyledLoginForm>
+        <StyledImage src={GrowingPlantImage}>
 
-            <input type='submit' value="Log In" />
-        </form>
+        </StyledImage>
+        </StyledFormandImage>
     )
 }
         
