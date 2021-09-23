@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axiosWithAuth from "../../utils/axiosWithAuth";
-import axios from 'axios'
 
 const initialFormValues = {
   nickname: "",
   species: "",
-  h20_frequency: "",
+  h20_frequency: ""
 };
 
 const initialFormErrors = {
@@ -19,24 +18,27 @@ const AddPlant = () => {
   const [formValues, setFormValues] = useState(initialFormValues);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [disabled, setDisabled] = useState(true);
-  const [plants, setPlants]=useState([]);
 
-  useEffect(()=>{
-      axios.get('https://water-my-plants-4-api.herokuapp.com/api/users')
-        .then(response =>{
-          console.log('users',response);
-        }).catch(error=>{
-          console.log(error);
-        });
+  const userID = parseInt(localStorage.getItem('user_id'));
 
-      axios.get('https://water-my-plants-4-api.herokuapp.com/api/plants')
-        .then(response =>{
-          console.log('plants',response);
-          setPlants(response.data)
-        }).catch(error=>{
-          console.log(error);
-        });
-  },[])
+  // const [plants, setPlants]=useState([]);
+
+  // useEffect(()=>{
+  //     axios.get('https://water-my-plants-4-api.herokuapp.com/api/users')
+  //       .then(response =>{
+  //         console.log('users',response);
+  //       }).catch(error=>{
+  //         console.log(error);
+  //       });
+
+  //     axios.get('https://water-my-plants-4-api.herokuapp.com/api/plants')
+  //       .then(response =>{
+  //         console.log('plants',response);
+  //         setPlants(response.data)
+  //       }).catch(error=>{
+  //         console.log(error);
+  //       });
+  // },[])
 
 //fetch version for plant data
   // const getPlant=async()=>{
@@ -45,18 +47,21 @@ const AddPlant = () => {
   //   console.log(data)
   // }
 
- console.log(plants);
+//  console.log(plants);
 
-  const listofPlants=plants.map((plant) => {
-    return plant.nickname
-  })
+//   const listofPlants=plants.map((plant) => {
+//     return plant.nickname
+//   })
 
   const onSubmit = (event) => {
     event.preventDefault();
+    console.log(formValues);
+
     axiosWithAuth()
       .post("/api/plants", formValues)
       .then(res => {
         console.log('addplant.js - formValues onsubmit', res);
+        setFormValues(initialFormValues);
       })
       .catch(err => {
         console.error(err);
@@ -65,10 +70,12 @@ const AddPlant = () => {
   };
 
   const onChange = (event) => {
+
     const { name, value } = event.target;
     setFormValues({
       ...formValues,
-      [name]: value})
+      [name]: value,
+      user_id: userID})
   };
 
   return (
@@ -118,7 +125,7 @@ const AddPlant = () => {
           <button disabled={false}>Add</button>
         </form>
 
-        <div>
+        {/* <div>
             {plants.map((plant)=>(
               <div>
                 <h3>{plant.nickname}</h3>
@@ -126,7 +133,7 @@ const AddPlant = () => {
                 <h3>{plant.h20_frequency}</h3>
               </div>
             ))}
-        </div>
+        </div> */}
     </>
   )
 }

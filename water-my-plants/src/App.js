@@ -13,6 +13,7 @@ import Login from './components/Login/Login';
 import Logout from './components/Protected Route/Logout'
 import SignUp from './components/Sign Up/SignUp';
 import AddPlant from './components/Add Plant/AddPlant';
+
 const App = () => {
   const isLoggedin = localStorage.getItem("token");
 
