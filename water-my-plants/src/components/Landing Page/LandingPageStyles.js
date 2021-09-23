@@ -38,6 +38,8 @@ export const StyledTitle = styled.div`
 
 export const StyledSpan = styled.span`
     color: ${props => props.theme.colors.mainGreen};
+    text-transform: uppercase;
+    font-weight: 800;
 `
 
 // BUTTONS
