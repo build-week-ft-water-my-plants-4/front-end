@@ -60,10 +60,6 @@ const Dashboard = () => {
                 )
             }) : <h4> Add plants to get started </h4>
         }
-
-        <div>
-            <Link to='/add-plant'>Add a New Plant!</Link>
-        </div>
         </StyledDash>
         </>
     );
