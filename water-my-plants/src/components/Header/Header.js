@@ -30,6 +30,7 @@ const Header = () => {
                     <nav><Link to='/sign-up' className="btn btn-click"><PersonAdd title='Sign Up'sx={{ fontSize: 45, color: 'black'}}/></Link></nav>
                     <Link to='add-plant'>Add Plant Component</Link>
                 </StyledHeaderLinks>
+                
             </StyledNavContainer>
         </div>
     );

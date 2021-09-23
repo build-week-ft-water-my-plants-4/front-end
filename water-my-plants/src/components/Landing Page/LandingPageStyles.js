@@ -63,7 +63,8 @@ export const LandingButton = styled.button`
 
 
     &:hover {
-        background: ${props => props.theme.colors.mainGreen}
+        background: ${props => props.theme.colors.mainGreen};
+        transition: background 1s ease-in-out;
     }
 `
 
