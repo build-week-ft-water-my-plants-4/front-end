@@ -3,6 +3,8 @@ import axios from 'axios';
 import AddPlant from '../Add Plant/AddPlant';
 import { Link } from 'react-router-dom';
 import Plant from './PlantCard';
+import { StyledDash } from './DashboardStyles';
+
 
 const Dashboard = () => {
 
@@ -48,6 +50,7 @@ const Dashboard = () => {
 
     return(
         <>
+        <StyledDash>
         {
             (plants.length > 1) ? plants.map(plant => {
                 return(
@@ -61,6 +64,7 @@ const Dashboard = () => {
         <div>
             <Link to='/add-plant'>Add a New Plant!</Link>
         </div>
+        </StyledDash>
         </>
     );
 };

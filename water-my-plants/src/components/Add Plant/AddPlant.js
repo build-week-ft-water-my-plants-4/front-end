@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import axiosWithAuth from "../../utils/axiosWithAuth";
 import axios from "axios";
@@ -23,7 +24,7 @@ const initialFormErrors = {
   h20_frequency: "",
 };
 
-const AddPlant = () => {
+const AddPlant = (props) => {
   const [formValues, setFormValues] = useState(initialFormValues);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [disabled, setDisabled] = useState(true);
@@ -69,7 +70,7 @@ const AddPlant = () => {
     axiosWithAuth().post("/api/plants", formValues)
     .then(res => {
       setFormValues(initialFormValues);
-      push('/dashboard')
+      props.history.push('/dashboard')
     })
     .catch(err => {
       console.error(err);
