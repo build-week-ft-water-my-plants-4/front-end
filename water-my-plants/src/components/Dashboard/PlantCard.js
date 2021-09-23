@@ -9,6 +9,7 @@ const Plant = (props) => {
             <h5>{plant.species}</h5>
             <h5>{plant.h2o_frequency}</h5>
         </div>
+        
        </>
     )
 } 
