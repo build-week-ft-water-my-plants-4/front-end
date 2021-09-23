@@ -11,10 +11,11 @@ import { AccountCircle } from '@mui/icons-material';
 import { ExitToApp } from '@mui/icons-material';
 
 const Header = (props) => {
+
     const { userLoggedIn } = props;
+    
     return (
         <div>
-            {/* <h1>Garden of Eden</h1> */}
             <StyledNavContainer>
 
                 <Link to='/'>

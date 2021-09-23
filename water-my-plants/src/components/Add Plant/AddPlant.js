@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import axiosWithAuth from "../../utils/axiosWithAuth";
+import { useHistory } from "react-router";
 
 const initialFormValues = {
   nickname: "",
@@ -15,6 +16,9 @@ const initialFormErrors = {
 };
 
 function AddPlant(props) {
+
+  const { push } = useHistory();
+
   const [formValues, setFormValues] = useState(initialFormValues);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [disabled, setDisabled] = useState(true);
@@ -37,7 +41,7 @@ function AddPlant(props) {
       setFormErrors(err);
     })
     console.log(formValues);
-    props.history.push('/dashboard')
+    push('/dashboard')
   };
 
   const onChange = (event) => {
