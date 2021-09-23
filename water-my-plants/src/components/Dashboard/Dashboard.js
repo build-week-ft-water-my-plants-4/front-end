@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import AddPlant from '../Add Plant/AddPlant';
+import Plant from './PlantCard';
 
 const Dashboard = () => {
 
@@ -50,8 +51,7 @@ const Dashboard = () => {
             (plants.length > 1) ? plants.map(plant => {
                 return(
                     <div>
-                        <h6>{plant.species}</h6>
-                        <h6>{plant.plant_id}</h6>
+                        <Plant plant={plant}/>
                     </div>
                 )
             }) : <h4> Add plants to get started </h4>
