@@ -36,6 +36,9 @@ function AddPlant(props) {
       console.error(err);
       setFormErrors(err);
     })
+    .finally(res => {
+      window.location.reload(true);
+    })
     console.log(formValues);
     push('/dashboard')
   };
