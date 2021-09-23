@@ -1,30 +1,68 @@
-import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axiosWithAuth from "../../utils/axiosWithAuth";
-import { useHistory } from "react-router";
+import axios from "axios";
+
+import {
+  GeneralStyles,
+  FormStyles,
+  AddPlantButton,
+  StyledInputs,
+  StyledHeading,
+  ButtonCenter,
+} from "./AddPlantStyles";
 
 const initialFormValues = {
   nickname: "",
   species: "",
-  h2o_frequency: "",
+  h20_frequency: "",
 };
 
 const initialFormErrors = {
   nickname: "",
   species: "",
-  h2o_frequency: "",
+  h20_frequency: "",
 };
 
-function AddPlant(props) {
-
-  const { push } = useHistory();
-
+const AddPlant = () => {
   const [formValues, setFormValues] = useState(initialFormValues);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [disabled, setDisabled] = useState(true);
-  
-  const userId = parseInt(localStorage.getItem("user_id"));
-  
+  const [plants, setPlants] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("https://water-my-plants-4-api.herokuapp.com/api/users")
+      .then((response) => {
+        console.log("users", response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+    axios
+      .get("https://water-my-plants-4-api.herokuapp.com/api/plants")
+      .then((response) => {
+        console.log("plants", response);
+        setPlants(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
+  //fetch version for plant data
+  // const getPlant=async()=>{
+  //   const response =await fetch('https://water-my-plants-4-api.herokuapp.com/');
+  //   const data=await response.json();
+  //   console.log(data)
+  // }
+
+  console.log(plants);
+
+  const listofPlants = plants.map((plant) => {
+    return plant.nickname;
+  });
+
   const onSubmit = (event) => {
     event.preventDefault();
 
@@ -44,44 +82,45 @@ function AddPlant(props) {
   };
 
   const onChange = (event) => {
-    const { name,value } = event.target;
+    const { name, value } = event.target;
     setFormValues({
       ...formValues,
       [name]: value,
-      user_id: userId
-  })
+    });
   };
 
   return (
-    <form onSubmit={onSubmit}>
-      <h2>Add a Plant</h2>
-      <label>
-        <p>
-          What's your plants nickname?{" "}
+    <GeneralStyles>
+      <FormStyles onSubmit={onSubmit}>
+        <StyledHeading>Add a Plant</StyledHeading>
+
+        <StyledInputs>
+          What's your plants nickname?
+          <br />
           <input
             name="nickname"
             type="text"
-            value={formValues.nickname}
             placeholder="Add a Nickname"
+            value={formValues.nickname}
             onChange={onChange}
           />
-        </p>
-      </label>
-      <label>
-        <p>
-          What species is it?{" "}
+        </StyledInputs>
+
+        <StyledInputs>
+          What species is it?
+          <br />
           <input
             name="species"
             type="text"
-            value={formValues.species}
             placeholder="Add the Species"
             onChange={onChange}
+            value={formValues.species}
           />
-        </p>
-      </label>
-      <label>
-        <p>
-          How often do you water it?{" "}
+        </StyledInputs>
+
+        <StyledInputs>
+          How often do you water it?
+          <br />
           <select name="h2o_frequency" onChange={onChange}>
             <option value=""> -- Select -- </option>
             <option value="1">Every Day</option>
@@ -89,11 +128,24 @@ function AddPlant(props) {
             <option value="5">Every Five Days</option>
             <option value="7">Once a Week</option>
           </select>
-        </p>
-      </label>
-      <button disabled={false}>Add</button>
-    </form>
+        </StyledInputs>
+
+        <ButtonCenter>
+          <AddPlantButton disabled={false}>Add</AddPlantButton>
+        </ButtonCenter>
+      </FormStyles>
+
+      <div>
+        {plants.map((plant) => (
+          <div>
+            <h3>{plant.nickname}</h3>
+            <h3>{plant.species}</h3>
+            <h3>{plant.h20_frequency}</h3>
+          </div>
+        ))}
+      </div>
+    </GeneralStyles>
   );
-}
+};
 
 export default AddPlant;
