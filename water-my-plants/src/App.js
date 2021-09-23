@@ -14,6 +14,7 @@ import Logout from './components/Protected Route/Logout'
 import SignUp from './components/Sign Up/SignUp';
 import AddPlant from './components/Add Plant/AddPlant';
 import Dashboard from './components/Dashboard/Dashboard';
+import ProfilePage from './components/Profile Page/ProfilePageStyles';
 
 const App = () => {
   // const isLoggedin = localStorage.getItem("token");
@@ -38,6 +39,8 @@ const App = () => {
         <ProtectedRoute path='/dashboard' component={Dashboard} />
 
         <ProtectedRoute path='/add-plant' component={AddPlant} />
+
+        <ProtectedRoute path='/profile-page' component={ProfilePage} />
         
         <ProtectedRoute path='/logout'>
           <Logout setUserLoggedIn={setUserLoggedIn} userLoggedIn={userLoggedIn} />

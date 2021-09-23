@@ -8,7 +8,8 @@ import {
     StyledImage,
     StyledButtonContainer,
     StyledSignupLabel,
-    WateringCanImage
+    WateringCanImage,
+    StyledButtonsforLoginSignup
 } from './SignUpStyles';
 
 
@@ -82,8 +83,10 @@ const SignUp = (props) => {
                 </StyledSignupLabel>
                 
                 <StyledButtonContainer>
-                    <button type='submit' value="Sign Up">Sign Up</button>
-                    <Link to="/login"><button>Go Back</button></Link>
+                    
+
+                    <StyledButtonsforLoginSignup type='submit' value="Sign Up">Sign Up</StyledButtonsforLoginSignup>
+                    <Link to="/login"><StyledButtonsforLoginSignup>Go Back</StyledButtonsforLoginSignup></Link>
                 </StyledButtonContainer>
 
             </StyledSignupForm>
