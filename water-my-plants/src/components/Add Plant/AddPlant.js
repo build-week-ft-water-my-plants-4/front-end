@@ -37,6 +37,7 @@ function AddPlant(props) {
       setFormErrors(err);
     })
     console.log(formValues);
+    props.history.push('/dashboard')
   };
 
   const onChange = (event) => {

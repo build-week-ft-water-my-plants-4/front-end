@@ -8,8 +8,6 @@ export const StyledNavContainer = styled.div`
 
 export const StyledHeaderLinks = styled.div`
     display: flex;
-
-    >nav{
-        padding: 15px;
-    }
+    width: 10%;
+    justify-content: space-around;
 `

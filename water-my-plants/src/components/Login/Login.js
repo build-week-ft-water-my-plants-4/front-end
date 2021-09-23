@@ -2,15 +2,16 @@ import React,{useState} from 'react';
 import axiosWithAuth from '../../utils/axiosWithAuth';
 import { useHistory } from 'react-router';
 
-const Login = () => {
-    const { push } = useHistory();
- 
-    const initialLoginValues ={
+const initialLoginValues = {
     username:"",
     password:""
-    }
+}
 
-    const [loginValues, setLoginValues]=useState(initialLoginValues)
+
+const Login = (props) => {
+    const { userLoggedIn, setUserLoggedIn } = props;
+    const { push } = useHistory();
+    const [ loginValues, setLoginValues ] = useState(initialLoginValues)
 
     const onChange = (event) => {
         const { name, value } = event.target;
@@ -28,11 +29,12 @@ const Login = () => {
                 console.log(res);
                 localStorage.setItem("token", res.data.token);
                 localStorage.setItem("user_id", res.data.user_id);
-                push('/add-plant');
+                push('/dashboard');
             })
             .catch(err => {
                 console.error(err);
-            })
+            });
+            setUserLoggedIn(true);
     }
 
     return(
