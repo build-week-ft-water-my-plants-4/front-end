@@ -11,3 +11,5 @@ export const StyledHeaderLinks = styled.div`
     width: 10%;
     justify-content: space-around;
 `
+
+export const AddPlantIcon = 'https://cdn3.iconfinder.com/data/icons/ecology-67/300/ecology-ecofriend-bio-eco-nature-plant-add-512.png'

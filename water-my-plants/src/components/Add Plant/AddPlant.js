@@ -31,6 +31,7 @@ function AddPlant(props) {
     axiosWithAuth().post("/api/plants", formValues)
     .then(res => {
       setFormValues(initialFormValues);
+      push('/dashboard')
     })
     .catch(err => {
       console.error(err);
@@ -40,7 +41,6 @@ function AddPlant(props) {
       window.location.reload(true);
     })
     console.log(formValues);
-    push('/dashboard')
   };
 
   const onChange = (event) => {

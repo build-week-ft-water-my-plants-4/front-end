@@ -57,7 +57,7 @@ const LandingPage = () => {
 
                         <MoreInfoSection>
                             <MoreInfoImage src={wateringSrc} />
-                            <MoreInfoText>With <span>Garden of Eden</span>, you can take the next steps to turning your living room into a jungle. Customizable watering schedules, along with push notifications, mean you'll kill another plant. </MoreInfoText>
+                            <MoreInfoText>With <span>Garden of Eden</span>, you can take the next steps to turning your living room into a jungle. Customizable watering schedules, along with push notifications means you'll kill another plant. </MoreInfoText>
                         </MoreInfoSection>
 
                         <MoreInfoSection>

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Icon from '@mdi/react'
 import { mdiSprout } from '@mdi/js';
 
-import { StyledNavContainer, StyledHeaderLinks } from './HeaderStyles';
+import { AddPlantIcon, StyledNavContainer, StyledHeaderLinks } from './HeaderStyles';
 
 // import { StyledButton } from '../../theme/Theme';
 import { PersonAdd } from '@mui/icons-material';
@@ -30,10 +30,15 @@ const Header = (props) => {
                     {
                         !userLoggedIn ?  
                         <>
-                        <Link to='/sign-up'><PersonAdd title='Sign Up'sx={{ fontSize: 45, color: 'black'}}/></Link>
-                        <Link to='/login'><AccountCircle title='Login'sx={{fontSize: 45, color: 'black'}}/></Link>
+                        <Link to='/sign-up'><PersonAdd sx={{ fontSize: 45, color: 'black'}}/></Link>
+                        <Link to='/login'><AccountCircle sx={{fontSize: 45, color: 'black'}}/></Link>
                         </>
-                        : <><Link to='/logout'><ExitToApp sx={{ fontSize: 45, color: 'black'}}/></Link></>
+                        : 
+                        <>
+                        <Link to='/profile-page'><AccountCircle sx={{fontSize: 45, color: 'black'}}/></Link>
+                        <Link to='add-plant'><img src={AddPlantIcon} style={{width: "45px"}}/></Link>
+                        <Link to='/logout'><ExitToApp sx={{ fontSize: 45, color: 'black'}}/></Link>
+                        </>
                     }
 
                     
