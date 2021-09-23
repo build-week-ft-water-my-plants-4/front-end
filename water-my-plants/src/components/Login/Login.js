@@ -47,11 +47,12 @@ const Login = (props) => {
                 localStorage.setItem("token", res.data.token);
                 localStorage.setItem("user_id", res.data.user_id);
                 push('/dashboard');
+                setUserLoggedIn(true);
             })
             .catch(err => {
                 console.error(err);
             });
-            setUserLoggedIn(true);
+            
     }
 
     return(
