@@ -16,4 +16,10 @@ export const StyledDash = styled.div`
     color: lightgreen;
     background-color: ${props => props.theme.colors.mainBrown};
 }
+.edit-btn{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
 `
