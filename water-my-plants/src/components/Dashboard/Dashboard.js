@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import AddPlant from '../Add Plant/AddPlant';
+import { Link } from 'react-router-dom';
 
 const Dashboard = () => {
 
@@ -24,7 +25,7 @@ const Dashboard = () => {
         .catch(err => {
             console.log(err);
         });
-    }, [])
+    }, []);
 
     // useEffect(() => {
     //     axios.get('https://water-my-plants-4-api.herokuapp.com/api/plants')
@@ -42,7 +43,7 @@ const Dashboard = () => {
     //     .catch(err => {
     //         console.log(err);
     //     });
-    // }, [])
+    // }, [plants])
 
     return(
         <>
@@ -55,11 +56,10 @@ const Dashboard = () => {
                     </div>
                 )
             }) : <h4> Add plants to get started </h4>
-
         }
 
         <div>
-            <AddPlant />
+            <Link to='/add-plant'>Add a New Plant!</Link>
         </div>
         </>
     );
