@@ -1,11 +1,16 @@
 
 import React, {useEffect} from "react";
+import { useHistory } from "react-router";
 
 const Logout = (props) => {
     
+    const { push } = useHistory();
+    const { userLoggedIn, setUserLoggedIn } = props;
+
     useEffect(() => {
             localStorage.removeItem('token');
-                props.history.push("/login");
+            setUserLoggedIn(false);
+            push("/");
     }, [])
 
     return(<div></div>);

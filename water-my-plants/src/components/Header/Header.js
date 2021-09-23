@@ -7,14 +7,15 @@ import { StyledNavContainer, StyledHeaderLinks } from './HeaderStyles';
 
 // import { StyledButton } from '../../theme/Theme';
 import { PersonAdd } from '@mui/icons-material';
- import AccountBoxIcon from '@mui/icons-material/AccountBox';
-import { AccountBox } from '@mui/icons-material';
-import { Login }  from '@mui/icons-material';
+import { AccountCircle } from '@mui/icons-material';
+import { ExitToApp } from '@mui/icons-material';
 
-const Header = () => {
+const Header = (props) => {
+
+    const { userLoggedIn } = props;
+    
     return (
         <div>
-            {/* <h1>Garden of Eden</h1> */}
             <StyledNavContainer>
 
                 <Link to='/'>
@@ -24,13 +25,20 @@ const Header = () => {
                     color={'#629460'}
                 />
                 </Link>
-               
-               <StyledHeaderLinks className='header-links'>
-                    <nav><Link to='/login' className="btn btn-click"><Login title='Login'sx={{fontSize: 45, color: 'black'}}/></Link></nav>
-                    <nav><Link to='/sign-up' className="btn btn-click"><PersonAdd title='Sign Up'sx={{ fontSize: 45, color: 'black'}}/></Link></nav>
-                    <Link to='add-plant'>Add Plant Component</Link>
-                </StyledHeaderLinks>
 
+               <StyledHeaderLinks>
+                    {
+                        !userLoggedIn ?  
+                        <>
+                        <Link to='/sign-up'><PersonAdd title='Sign Up'sx={{ fontSize: 45, color: 'black'}}/></Link>
+                        <Link to='/login'><AccountCircle title='Login'sx={{fontSize: 45, color: 'black'}}/></Link>
+                        </>
+                        : <><Link to='/logout'><ExitToApp sx={{ fontSize: 45, color: 'black'}}/></Link></>
+                    }
+
+                    
+                </StyledHeaderLinks>
+                
             </StyledNavContainer>
         </div>
     );

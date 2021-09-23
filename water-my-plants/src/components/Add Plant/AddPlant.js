@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import axiosWithAuth from "../../utils/axiosWithAuth";
+import { useHistory } from "react-router";
 
 const initialFormValues = {
   nickname: "",
@@ -15,6 +16,9 @@ const initialFormErrors = {
 };
 
 function AddPlant(props) {
+
+  const { push } = useHistory();
+
   const [formValues, setFormValues] = useState(initialFormValues);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [disabled, setDisabled] = useState(true);
@@ -23,13 +27,9 @@ function AddPlant(props) {
   
   const onSubmit = (event) => {
     event.preventDefault();
-    console.log('userID exists', typeof userId);
-
-    console.log('user id added',formValues)
 
     axiosWithAuth().post("/api/plants", formValues)
     .then(res => {
-      console.log(res);
       setFormValues(initialFormValues);
     })
     .catch(err => {
@@ -37,12 +37,16 @@ function AddPlant(props) {
       setFormErrors(err);
     })
     console.log(formValues);
+    push('/dashboard')
   };
 
   const onChange = (event) => {
-    const {name,value}=event.target;
-    setFormValues({...formValues,[name]:value,
-    user_id: userId})
+    const { name,value } = event.target;
+    setFormValues({
+      ...formValues,
+      [name]: value,
+      user_id: userId
+  })
   };
 
   return (

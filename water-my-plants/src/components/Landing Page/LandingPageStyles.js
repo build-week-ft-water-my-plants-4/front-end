@@ -38,6 +38,8 @@ export const StyledTitle = styled.div`
 
 export const StyledSpan = styled.span`
     color: ${props => props.theme.colors.mainGreen};
+    text-transform: uppercase;
+    font-weight: 800;
 `
 
 // BUTTONS
@@ -61,7 +63,8 @@ export const LandingButton = styled.button`
 
 
     &:hover {
-        background: ${props => props.theme.colors.mainGreen}
+        background: ${props => props.theme.colors.mainGreen};
+        transition: background-color 1s ease-in-out;
     }
 `
 
