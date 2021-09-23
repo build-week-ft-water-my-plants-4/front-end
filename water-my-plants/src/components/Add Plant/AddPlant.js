@@ -27,13 +27,9 @@ function AddPlant(props) {
   
   const onSubmit = (event) => {
     event.preventDefault();
-    console.log('userID exists', typeof userId);
-
-    console.log('user id added',formValues)
 
     axiosWithAuth().post("/api/plants", formValues)
     .then(res => {
-      console.log(res);
       setFormValues(initialFormValues);
     })
     .catch(err => {
@@ -45,9 +41,12 @@ function AddPlant(props) {
   };
 
   const onChange = (event) => {
-    const {name,value}=event.target;
-    setFormValues({...formValues,[name]:value,
-    user_id: userId})
+    const { name,value } = event.target;
+    setFormValues({
+      ...formValues,
+      [name]: value,
+      user_id: userId
+  })
   };
 
   return (
