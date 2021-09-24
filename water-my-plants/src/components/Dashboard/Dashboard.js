@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import AddPlant from '../Add Plant/AddPlant';
-import { Link } from 'react-router-dom';
 import Plant from './PlantCard';
 import { StyledDash } from './DashboardStyles';
 
@@ -11,7 +9,6 @@ const Dashboard = () => {
     const userID = parseInt(localStorage.getItem('user_id'));
 
     const [ plants, setPlants ] = useState([]);
-    const [ modal, setModal ] = useState(false);
     
     useEffect(() => {
         axios.get('https://water-my-plants-4-api.herokuapp.com/api/plants')
@@ -28,7 +25,7 @@ const Dashboard = () => {
         .catch(err => {
             console.log(err);
         });
-    }, []);
+    }, [userID]);
 
     // useEffect(() => {
     //     axios.get('https://water-my-plants-4-api.herokuapp.com/api/plants')

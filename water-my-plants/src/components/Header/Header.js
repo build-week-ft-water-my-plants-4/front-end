@@ -36,7 +36,7 @@ const Header = (props) => {
                         : 
                         <>
                         <Link to='/profile-page'><AccountCircle sx={{fontSize: 45, color: 'black'}}/></Link>
-                        <Link to='add-plant'><img src={AddPlantIcon} style={{width: "45px"}}/></Link>
+                        <Link to='add-plant'><img src={AddPlantIcon} alt='add plant icon' style={{width: "45px"}}/></Link>
                         <Link to='/logout'><ExitToApp sx={{ fontSize: 45, color: 'black'}}/></Link>
                         </>
                     }

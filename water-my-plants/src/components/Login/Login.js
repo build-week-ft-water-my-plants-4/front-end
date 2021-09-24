@@ -26,7 +26,7 @@ const initialLoginValues = {
 
 
 const Login = (props) => {
-    const { userLoggedIn, setUserLoggedIn } = props;
+    const { setUserLoggedIn } = props;
     const { push } = useHistory();
     const [ loginValues, setLoginValues ] = useState(initialLoginValues)
 

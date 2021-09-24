@@ -1,8 +1,6 @@
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axiosWithAuth from "../../utils/axiosWithAuth";
-import axios from "axios";
-import {useHistory} from 'react';
 import {
   GeneralStyles,
   FormStyles,
@@ -27,7 +25,6 @@ const initialFormErrors = {
 const AddPlant = (props) => {
   const [formValues, setFormValues] = useState(initialFormValues);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
-  const [disabled, setDisabled] = useState(true);
   //fetch version for plant data
   // const getPlant=async()=>{
   //   const response =await fetch('https://water-my-plants-4-api.herokuapp.com/');
@@ -65,7 +62,7 @@ const AddPlant = (props) => {
     <GeneralStyles>
       <FormStyles onSubmit={onSubmit}>
         <StyledHeading>Add a Plant</StyledHeading>
-
+        {formErrors === initialFormErrors ? <div>{formErrors}</div> : <div></div>}
         <StyledInputs>
           What's your plants nickname?
           <br />

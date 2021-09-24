@@ -12,13 +12,9 @@ import {
     MoreInfoContainer,
     MoreInfoImage,
     MoreInfoSection,
-    Growing,
-    PlantingContainer,
     plantGrowSrc,
     MoreInfoText,
-    Planting,
     plantingSrc,
-    Watering,
     wateringSrc,
     StyledTitle
 } from './LandingPageStyles';

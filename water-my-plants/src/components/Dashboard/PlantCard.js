@@ -15,8 +15,8 @@ const Plant = (props) => {
             
         </StyledPlantCardDiv>
         <div className='edit-btn'>
-        {/* need to change link later when route is setup */}
-        <Link to="/edit-plant"><AddPlantButton>Edit Plant</AddPlantButton></Link>
+            {/* need to change link later when route is setup */}
+            <Link to="/edit-plant"><AddPlantButton>Edit Plant</AddPlantButton></Link>
         </div>
        </StyledPlantCard>
     )
